@@ -1,3 +1,4 @@
+import { toast } from "sonner";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { InferResponseType } from "hono";
 
@@ -16,11 +17,20 @@ export const useLogout = () => {
     >({
         mutationFn: async () => {
             const response = await client.api.auth.logout["$post"]();
+
+            if (!response.ok) {
+                throw new Error("Failed to logout")
+            }
+
             return await response.json();
         },
         onSuccess: () => {
+            toast.success("Logged out successfully");
             router.refresh();
             queryClient.invalidateQueries({queryKey: ["current"]}); // once the user log out we are forcing it refetch it from use-current, once it is undefiend it is going to redirect to sign-in page.
+        },
+        onError: () => {
+            toast.error("Failed to log out"); // if want the error message in console the just error key word in the normal brackets and console log the error.
         }
     });
 
