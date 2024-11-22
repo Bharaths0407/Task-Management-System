@@ -27,7 +27,8 @@ export const useLogout = () => {
         onSuccess: () => {
             toast.success("Logged out successfully");
             router.refresh();
-            queryClient.invalidateQueries({queryKey: ["current"]}); // once the user log out we are forcing it refetch it from use-current, once it is undefiend it is going to redirect to sign-in page.
+            queryClient.invalidateQueries({queryKey: ["current"]});   // once the user log out we are forcing it refetch it from use-current, once it is undefiend it is going to redirect to sign-in page.
+            queryClient.invalidateQueries({queryKey: ["workspaces"]}); 
         },
         onError: () => {
             toast.error("Failed to log out"); // if want the error message in console the just error key word in the normal brackets and console log the error.
