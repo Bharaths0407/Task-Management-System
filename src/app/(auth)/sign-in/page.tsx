@@ -1,15 +1,15 @@
 import { redirect } from "next/navigation";
 
-import { getCurrent } from "@/features/auth/action";
+import { getCurrent } from "@/features/auth/queries";
 import { SignInCard } from "@/features/auth/components/sign-in-card";
 
 const SignInPage = async () => {
-    const user = await getCurrent();
+  const user = await getCurrent();
 
-    if (user) {
-        redirect("/");//root page.
-    }
-    return <SignInCard/>
+  if (user) {
+    redirect("/"); //root page.
+  }
+  return <SignInCard />;
 };
- 
+
 export default SignInPage;
