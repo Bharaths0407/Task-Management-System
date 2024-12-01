@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { SettingsIcon, UserIcon } from "lucide-react";
+import { SettingsIcon, UsersIcon } from "lucide-react";
 import { GoCheckCircle, GoCheckCircleFill, GoHome, GoHomeFill } from "react-icons/go";
 
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
@@ -31,8 +31,8 @@ const routes = [
     {
         label: "Members",
         href: "/members",
-        icon: UserIcon,
-        activeIcon: UserIcon,
+        icon: UsersIcon,
+        activeIcon: UsersIcon,
     },
 ];
 
