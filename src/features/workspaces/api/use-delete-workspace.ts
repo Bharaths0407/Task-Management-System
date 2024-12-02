@@ -24,7 +24,7 @@ export const useDeleteWorkspace = () => {
             return await response.json();
         },
         onSuccess: ({data}) => {
-            toast.success("Workspace Deleted");
+            toast.success("Workspace Deleted");  // if any problems occures after deleting all workspace then use router refresh action or redirect it home on sucess
             queryClient.invalidateQueries({queryKey: ["workspaces"]});
             queryClient.invalidateQueries({queryKey: ["workspace", data.$id]});
 
