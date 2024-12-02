@@ -143,7 +143,7 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceForm
                         {initialValues.name}
                     </CardTitle>
                 </CardHeader>
-                <div className="p-4">
+                <div className="px-7 mt-2">
                     <DottedSeparator/>
                 </div>
                 <CardContent className="p-7">
@@ -281,7 +281,7 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceForm
                                 <CopyIcon className="size-5"/>
                             </Button>
                         </div>
-                        <DottedSeparator py-7/>
+                        <DottedSeparator classname="py-7"/>
                         <Button 
                             className="mt-6 w-fit ml-auto"
                             size="sm"
@@ -303,7 +303,7 @@ export const EditWorkspaceForm = ({ onCancel, initialValues }: EditWorkspaceForm
                         <p className="text-sm text-muted-foreground">
                             Deleting a workspace is irreversible and it will remove all associated data.
                         </p>
-                        <DottedSeparator py-7/>
+                        <DottedSeparator classname="py-7"/>
                         <Button 
                             className="mt-6 w-fit ml-auto"
                             size="sm"
