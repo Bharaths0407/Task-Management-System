@@ -8,7 +8,6 @@ import { DottedSeparator } from "@/components/dotted-separator";
 
 import { Task } from "../types";
 import { useUpdateTask } from "../api/use-update-task";
-import { json } from "stream/consumers";
 
 interface TaskDescriptionProps {
     task: Task;
@@ -25,6 +24,12 @@ export const TaskDescription = ({ task }: TaskDescriptionProps) => {
         mutate({
             json: { description: value },
             param: { taskId: task.$id},
+            
+        }, {
+            onSuccess: () => {
+                task.description = value;
+                setIsEditing(false);
+            }
         });
     }
 
@@ -66,7 +71,8 @@ export const TaskDescription = ({ task }: TaskDescriptionProps) => {
                         <span className="text-muted-foreground">No description set</span>
                     )}
                 </div>
-                )}
+                )
+            }
         </div>
     );
 };
