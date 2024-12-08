@@ -3,15 +3,21 @@
 import * as React from "react";
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
+import { DayPicker } from "react-day-picker";
+
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
+import "react-day-picker/style.css";
+
+
 import {
     Popover,
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover";
+
+import "./date-picker.css"
 
 interface DatePickerProps {
     value: Date | undefined;
@@ -35,7 +41,7 @@ export const DatePicker = ({ value, onChange, className, placeholder = "Select D
                 </Button>
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0">
-                <Calendar
+                <DayPicker
                     mode="single"
                     selected={value}
                     onSelect={(date) =>onChange(date as Date)}

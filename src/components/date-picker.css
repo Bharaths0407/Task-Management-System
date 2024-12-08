@@ -1,0 +1,5 @@
+.rdp-root {
+    --rdp-accent-color: #2563EB;
+    padding: 1.5rem;
+    --rdp-months-gap: 3rem;
+}
